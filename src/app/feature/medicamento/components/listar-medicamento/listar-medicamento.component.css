@@ -1,0 +1,28 @@
+table {
+    table-layout: fixed;
+    justify-content: center;
+    align-self:center;
+    width: 95%;
+    border-collapse: collapse;
+    border: 3px solid rgb(186, 231, 216);
+}
+
+thead th:nth-child(1) {
+    width: 20%;
+  }
+  
+  thead th:nth-child(2) {
+    width: 20%;
+  }
+  
+  thead th:nth-child(3) {
+    width: 20%;
+  }
+  
+  thead th:nth-child(4) {
+    width: 15%;
+  }
+  
+  th, td {
+    padding: 15px;
+  }
