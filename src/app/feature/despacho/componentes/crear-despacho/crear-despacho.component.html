@@ -1,0 +1,33 @@
+<div class="card espacio">
+    <div class="card-header text-center">
+      Nuevo Despacho
+    </div>
+    <div class="card-body">
+      <form>
+        <div class="mb-3">
+          <label for="cantidad" class="form-label">Cantidad</label>
+          <input type="text" class="form-control" id="cantidadCrearDespacho" [(ngModel)]="despacho.cantidad" name="cantidad">
+        </div>
+        <div class="mb-3">
+          <label for="direccion" class="form-label">Direccion</label>
+          <input type="text" class="form-control" id="direccionCrearDespacho" [(ngModel)]="despacho.direccion" name="direccion">
+        </div>
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre Medicamento</label>
+          <input type="text" readonly="readonly" class="form-control" id="nombreMedicamentoCrearDespacho" [(ngModel)]="despacho.medicamento.nombre" name="nombre">
+        </div>
+        <div class="mb-3">
+          <label for="costo" class="form-label">Costo Medicamento</label>
+          <input type="text" readonly="readonly" class="form-control" id="costoMedicamentoCrearDespacho" [(ngModel)]="despacho.medicamento.costo" name="costo">
+        </div>
+        <div class="mb-3">
+          <label for="fechaVencimiento" class="form-label">Fecha Vencimiento</label>
+          <input type="text" readonly="readonly" placeholder="yyyy-mm-dd hh:mm:ss" class ="form-control" id="fechaMedicamentoCrearDespacho" [(ngModel)]="despacho.medicamento.fecha" name="fecha">
+        </div>
+      </form>
+      <div class="card-footer text-muted ">
+        <button type="submit" class="btn btn-primary right" (click)='crear()' id="linkAceptarCrearDespacho">Aceptar</button>
+      </div>
+    </div>
+  </div>
+  <router-outlet></router-outlet>

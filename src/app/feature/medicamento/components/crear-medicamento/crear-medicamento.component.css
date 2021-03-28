@@ -1,0 +1,13 @@
+.espacio {
+    table-layout: fixed;
+    justify-content: center;
+    align-self:center;
+    width: 50%;
+    border-collapse: collapse;
+    border: 3px solid rgb(186, 231, 216);
+}
+
+button {
+    background-color: rgb(186, 231, 216);
+    color: black;
+  }

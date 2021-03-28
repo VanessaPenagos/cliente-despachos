@@ -10,6 +10,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MedicamentoModule } from './feature/medicamento/medicamento.module';
+import { DespachoModule } from './feature/despacho/despacho.module';
 
 
 
@@ -27,7 +28,8 @@ import { MedicamentoModule } from './feature/medicamento/medicamento.module';
     CoreModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DespachoModule
 
   ],
   providers: [CookieService],

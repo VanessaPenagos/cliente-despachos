@@ -1,10 +1,10 @@
-  
-<h5 class="card-title lead" style="text-align: center; width: 50%;">Medicamentos disponibles </h5>
 <div class=" hijo " style="width: 50%;">
+  <h5 class="card-title lead" style="text-align: center; width: 50%;">Medicamentos disponibles </h5>
     <div class="card-body text-secondary">
        <table class="table">
           <thead class="table-light">
           <tr>
+            <th scope="col">Id</th>
             <th scope="col">Nombre</th>
             <th scope="col">Fecha Vencimiento</th>
             <th scope="col">Costo medicamento</th>
@@ -13,11 +13,12 @@
         </thead>
         <tbody class="medicamentos">
           <tr *ngFor="let item of listaMedicamentos | async" class="itemMedicamento">
+            <td id="itemMedicamentoId{{item.itemMedicamento}}">{{ item.id }}</td>
             <td id="itemMedicamentoNombre{{item.itemMedicamento}}">{{ item.nombre }}</td>
             <td id="itemMedicamentoFechaVencimiento{{item.itemMedicamento}}">{{ item.fechaVencimiento }}</td>
             <td id="itemMedicamentoCosto{{item.itemMedicamento}} " type="number"> $ {{ item.costo }}</td>
             <td>
-              <button type="button" name = "button" class="btn btn-primary" id="linkEditarPartido{{item.idMedicamento}}" [routerLink] = "['/despacho/crear',item.idMedicamento]" routerLinkActive="active"> 
+              <button type="button" name = "button" class="btn btn-primary" [routerLink] = "['/despacho/crear', item.id, item.nombre, item.fechaVencimiento, item.costo]" routerLinkActive="active"> 
                 Despachar
               </button>
             </td>
