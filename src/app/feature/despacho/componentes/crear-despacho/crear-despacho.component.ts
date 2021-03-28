@@ -20,7 +20,7 @@ export class CrearDespachoComponent implements OnInit {
   ngOnInit(): void {
     this.medicamento.id = this.activatedRoute.snapshot.params.id;
     this.medicamento.nombre = this.activatedRoute.snapshot.params.nombre;
-    this.medicamento.fecha = this.activatedRoute.snapshot.params.fechaVencimiento;
+    this.medicamento.fechaVencimiento = this.activatedRoute.snapshot.params.fechaVencimiento;
     this.medicamento.costo = this.activatedRoute.snapshot.params.costo;
 
     this.despacho.medicamento = this.medicamento;
@@ -29,7 +29,7 @@ export class CrearDespachoComponent implements OnInit {
   public crear(): void{
     this.despachoService.crear(this.despacho).subscribe(
       _a => {
-        this.router.navigate(['/medicamentos/listar']),
+        this.router.navigate(['/medicamento']),
         swal.fire('medicamento creada', `El despacho con identificador ${_a['valor']} generado con éxito`, 'success')
         console.log(_a['valor'])
       }

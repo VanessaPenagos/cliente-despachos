@@ -13,8 +13,6 @@ import { MedicamentoModule } from './feature/medicamento/medicamento.module';
 import { DespachoModule } from './feature/despacho/despacho.module';
 
 
-
-
 @NgModule({
   declarations: [
     AppComponent,

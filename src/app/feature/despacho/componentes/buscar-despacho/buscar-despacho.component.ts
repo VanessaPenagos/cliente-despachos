@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Despacho } from 'src/app/feature/despacho/shared/model/despacho';
+import { DespachoService } from 'src/app/feature/despacho/shared/service/despacho.service';
 
 @Component({
   selector: 'app-buscar-despacho',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BuscarDespachoComponent implements OnInit {
 
-  constructor() { }
+  public despacho: Despacho = new Despacho();
+
+
+  constructor(protected despachoService: DespachoService) { }
 
   ngOnInit(): void {
+    
   }
+
+
+  
 
 }

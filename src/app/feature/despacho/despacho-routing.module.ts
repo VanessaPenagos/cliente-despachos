@@ -27,9 +27,10 @@ const routes: Routes = [
         component: CrearDespachoComponent
       },
       {
-        path: 'editar/:id',
+        path: 'actualizar/:id',
         component: ActualizarDespachoComponent
       }
+
     ]
   }
 ];

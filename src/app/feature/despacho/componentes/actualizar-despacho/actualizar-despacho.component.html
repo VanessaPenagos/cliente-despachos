@@ -1,1 +1,45 @@
-<p>actualizar-despacho works!</p>
+<div>
+
+  <div class="card formulario">
+    <h5 style="padding-top: 3%; padding-left: 3%;">Despacho {{despacho.id}}</h5>
+    <div class="card-body">
+      <form>
+        <div class="mb-3">
+            <label for="fechaDespacho" class="form-label">Fecha Despacho</label>
+            <input type="text" readonly="readonly" placeholder="yyyy-mm-dd hh:mm:ss" class ="form-control" id="fechaMedicamentoCrearDespacho" [(ngModel)]="despacho.fechaCreacion" name="fecha">
+        </div>
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre Medicamento</label>
+          <input type="text" readonly="readonly" class="form-control" id="nombreMedicamentoCrearDespacho" [(ngModel)]="despacho.medicamento.nombre" name="nombre">
+        </div>
+        <div class="mb-3">
+          <label for="costo" class="form-label">Costo Medicamento</label>
+          <input type="text" readonly="readonly" class="form-control" id="costoMedicamentoCrearDespacho" [(ngModel)]="despacho.medicamento.costo" name="costoMedicamento">
+        </div>
+        <div class="mb-3">
+          <label for="fechaVencimiento" class="form-label">Fecha Vencimiento</label>
+          <input type="text" readonly="readonly" placeholder="yyyy-mm-dd hh:mm:ss" class ="form-control" id="fechaMedicamentoCrearDespacho" [(ngModel)]="despacho.medicamento.fechaVencimiento" name="fecha">
+        </div>
+        <div class="mb-3">
+            <label for="cantidad" class="form-label">Cantidad</label>
+            <input type="text" class="form-control" id="cantidadCrearDespacho" [(ngModel)]="despacho.cantidad" name="cantidad">
+          </div>
+        <div class="mb-3">
+            <label for="direccion" class="form-label">Direccion</label>
+            <input type="text" class="form-control" id="direccionCrearDespacho" [(ngModel)]="despacho.direccion" name="direccion">
+         </div>
+         <div class="mb-3">
+            <label for="costo" class="form-label">Costo Total</label>
+            <input type="text" readonly="readonly" class="form-control" id="direccionCrearDespacho" [(ngModel)]="despacho.costoTotal" name="costo">
+         </div>
+         <br>
+      </form>
+    </div>
+  </div>
+
+  <div  class="my-4" style="padding-left: 70%;">
+    <button class="btn btn-primary" role="button" (click) = 'actualizar()' id="linkAceptarCrearMedicamento"> Actualizar </button>
+  </div>
+
+</div>
+

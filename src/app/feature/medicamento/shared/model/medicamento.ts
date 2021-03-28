@@ -1,6 +1,6 @@
 export class Medicamento {
     id ?: string;
     nombre ?: string;
-    fecha ?: string;
+    fechaVencimiento ?: string;
     costo ?: string;
 }

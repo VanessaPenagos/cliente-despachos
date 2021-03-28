@@ -2,7 +2,7 @@ import { Medicamento } from "src/app/feature/medicamento/shared/model/medicament
 
 export class Despacho {
     id ?: string;
-    fechaDespacho ?: string;
+    fechaCreacion?: string;
     medicamento ?: Medicamento;
     cantidad ?: string;
     costoTotal ?: string;
