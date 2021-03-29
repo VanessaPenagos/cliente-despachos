@@ -5,9 +5,8 @@ import { HomeComponent } from '@home/home.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '/medicamento/listar', pathMatch: 'full' },
   { path: 'home', component: HomeComponent, canActivate: [SecurityGuard]  },
-  { path: 'producto', loadChildren: () => import('@producto/producto.module').then(mod => mod.ProductoModule) },
   { path: 'medicamento', loadChildren: () => import('src/app/feature/medicamento/medicamento.module').then(mod => mod.MedicamentoModule) },
   { path: 'despacho', loadChildren: () => import('src/app/feature/despacho/despacho.module').then(mod => mod.DespachoModule) }
 ];

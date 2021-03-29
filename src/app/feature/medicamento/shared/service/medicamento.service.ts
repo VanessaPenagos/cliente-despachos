@@ -13,8 +13,6 @@ export class MedicamentoService {
   }
 
   public crear(medicamento: Medicamento){
-    console.log("ACÁ LLEGA EL MEDICAMENTO ASÍ: ")
-    console.log(medicamento);
     return this.http.doPost<Medicamento, boolean>(`${environment.endpoint}/medicamentos`, medicamento, this.http.optsName('crear medicamentos'));
   }
 

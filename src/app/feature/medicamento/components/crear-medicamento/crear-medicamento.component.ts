@@ -23,7 +23,7 @@ export class CrearMedicamentoComponent implements OnInit {
     this.medicamentoServices.crear(this.medicamento).subscribe(
       _a => {
         this.router.navigate(['/medicamento/listar']),
-        swal.fire('Partido creado', `Partido ${this.medicamento.nombre} creado con éxito`, 'success')
+        swal.fire('medicamento creado', `Medicamento ${this.medicamento.nombre} creado con éxito`, 'success')
       }
     )
   }
