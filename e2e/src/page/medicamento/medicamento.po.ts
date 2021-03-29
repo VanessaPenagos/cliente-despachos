@@ -17,10 +17,6 @@ export class MedicamentoPage {
         await this.linkCrearMedicamento.click();  
     }
 
-    async clickLinkCrearDespacho(id:String, nombre:String, fecha:string, costo:string){
-        await (element(by.id('linkCrearDespacho'+id+nombre+fecha+costo))).click();
-    }
-
     // validaciones
     async contarMedicamento(){
         return await this.listarMedicamento.count();

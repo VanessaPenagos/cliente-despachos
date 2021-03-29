@@ -13,14 +13,14 @@ describe('workspace-project Medicamento', () => {
         medicamento = new MedicamentoPage();
     });
 
-    it('A Listar medicamentos', () => {
+    it('D Listar medicamentos', () => {
         page.navigateTo();
         navBar.clickBotonMedicamentos();
     
-        expect(5).toBe(medicamento.contarMedicamento());
+        expect(4).toBe(medicamento.contarMedicamento());
       });
 
-      it('B Crear Medicamento', () => {
+      it('E Crear Medicamento', () => {
         const nombre = "Ibuprofeno";
         const costo = "300";
         const fechaVencimiento = "2021-05-19 00:00:00";
@@ -35,7 +35,7 @@ describe('workspace-project Medicamento', () => {
         page.navigateTo();
         navBar.clickBotonMedicamentos();
     
-        expect(6).toBe(medicamento.contarMedicamento());
+        expect(5).toBe(medicamento.contarMedicamento());
       });
 
 });    

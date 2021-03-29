@@ -18,7 +18,7 @@
             <td id="itemMedicamentoFechaVencimiento{{item.itemMedicamento}}">{{ item.fechaVencimiento }}</td>
             <td id="itemMedicamentoCosto{{item.itemMedicamento}} " type="number"> $ {{ item.costo }}</td>
             <td>
-              <button type="button" name = "button" class="btn btn-primary" id="linkCrearDEspacho" [routerLink] = "['/despacho/crear', item.id, item.nombre, item.fechaVencimiento, item.costo]" routerLinkActive="active"> 
+              <button type="button" name = "button" class="btn btn-primary" id="linkCrearDespacho" [routerLink] = "['/despacho/crear', item.id, item.nombre, item.fechaVencimiento, item.costo]" routerLinkActive="active"> 
                 Despachar
               </button>
             </td>

@@ -1,47 +1,39 @@
-import { by, element } from 'protractor';
+import { AppPage } from "../app.po";
+import { NavbarPage } from "../page/navbar/navbar.po";
+//import { MedicamentoPage } from "../page/medicamento/medicamento.po";
+import { DespachoPage } from "../page/despacho/despacho.po";
 
-export class DespachoPage {
+describe('workspace-project Despacho', () => {
+    let page: AppPage;
+    let navBar: NavbarPage;
+    //let medicamento: MedicamentoPage;
+    let despacho: DespachoPage;
 
-    //listar medicamentos
-    private linkCrearMedicamento = element(by.id('linkCrearMedicamento')); 
-    private listarMedicamento = element.all(by.css('.medicamentos')).all(by.css('.itemMedicamento'));
+    beforeEach(() => {
+        page = new AppPage();
+        navBar = new NavbarPage();
+        //medicamento = new MedicamentoPage();
+        despacho = new DespachoPage();
+    });
 
-    //Crear medicamento
-    private linkAceptarCrearMedicamento = element(by.id('linkAceptarCrearMedicamento'));
-    private inputNombreCrearMedicamento = element(by.id('nombreCrearMedicamento'));
-    private inputFechaCrearMedicamento = element(by.id('fechaCrearMedicamento'));
-    private inputCostoCrearMedicamento = element(by.id('CostoCrearMedicamento'));
-
-    //funciones para crear un despacho
-    //Medicamento
-    async clickLinkCrearMedicamento(){
-        await this.linkCrearMedicamento.click();  
-    }
-
-    // validaciones
-    async contarMedicamento(){
-            return await this.listarMedicamento.count();
-    }
-
-    //funciones para crear despachos
-
-    async clickLinkCrearDespacho(id:String, nombre:String, fecha:string, costo:string){
-        await (element(by.id('linkCrearDespacho'+id+nombre+fecha+costo))).click();
-    }
-      //funciones html crear medicamentos
-    async ingresarNombreCrearMedicamento(nombre){
-        await this.inputNombreCrearMedicamento.sendKeys(nombre);
-    }
-
-    async ingresarFechaCrearMedicamento(fecha){
-        await this.inputFechaCrearMedicamento.sendKeys(fecha);
-    }
-
-    async ingresarCostoCrearMedicamento(costo){
-        await this.inputCostoCrearMedicamento.sendKeys(costo);
-    }
-
-    async clickLinkAceptarCrearMedicamento(){
-        await this.linkAceptarCrearMedicamento.click();  
-    }
-}
+    it('A Crear Despacho', () => {
+        const nombre = "Vitamina D";
+        const costo = "15000";
+        const fechaVencimiento = "2021-05-19 00:00:00";
+        const cantidad  = "1";
+        const direccion = "direccion prueba e2e";
+    
+        page.navigateTo();
+        navBar.clickBotonMedicamentos();
+        page.navigateTo();
+        despacho.clickLinkCrearDespacho();
+        despacho.ingresarNombreCrearDespacho(nombre);
+        despacho.ingresarFechaCrearDespacho(fechaVencimiento);
+        despacho.ingresarCostoCrearDespacho(costo);
+        despacho.ingresarCantidadCrearDespacho(cantidad);
+        despacho.ingresarDireccionCrearDespacho(direccion);
+        despacho.clickLinkAceptarCrearMedicamento();
+        page.navigateTo();
+        navBar.clickBotonMedicamentos();
+      });
+});
