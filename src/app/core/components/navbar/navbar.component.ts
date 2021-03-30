@@ -9,7 +9,6 @@ import { MenuItem } from '@core/modelo/menu-item';
     border-bottom-width: 1px;
     display: block;
     height: 48px;
-    padding: 0 16px;
   }
 
   nav a {
@@ -28,9 +27,6 @@ import { MenuItem } from '@core/modelo/menu-item';
   }`],
 })
 export class NavbarComponent implements OnInit {
-
-  titulo = 'Laboratorio ADN';
-  
 
   @Input()
   items: MenuItem[];
