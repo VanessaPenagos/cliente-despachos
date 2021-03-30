@@ -39,7 +39,7 @@ describe('workspace-project Despacho', () => {
 
       
       
-    it('A Buscar Despacho', () => {
+    it('B Buscar Despacho', () => {
 
         const id = "2";
         
@@ -47,4 +47,18 @@ describe('workspace-project Despacho', () => {
         navBar.ingresarIdBuscarDespacho(id);
         navBar.clickBotonDespacho();
       });
+
+
+      it('C Actualizar Despacho', () => {
+
+        const id = "2";
+        const direccion = "direccion actualizada prueba e2e";
+        
+        page.navigateTo();
+        navBar.ingresarIdBuscarDespacho(id);
+        navBar.clickBotonDespacho();
+        despacho.ingresarDireccionActualizarDespacho(direccion);
+        despacho.clickLinkActualizarDespacho();
+      });
+
 });

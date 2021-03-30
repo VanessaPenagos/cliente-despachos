@@ -11,8 +11,6 @@ export class DespachoService {
   constructor(protected http: HttpService) { }
 
   public buscar(id:number) {
-    console.log(id);
-    console.log("hola, ya pasé")
     return this.http.doGet<Despacho>(`${environment.endpoint}/despachos/${id}`, this.http.optsName('consultar despacho'));
   }
 

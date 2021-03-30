@@ -27,7 +27,6 @@ export class ActualizarDespachoComponent implements OnInit {
           this.despachoService.buscar(id).subscribe(
             despachoResponse => this.despacho = despachoResponse
           )
-          console.log(this.despacho);
         }
       }
     )
@@ -38,7 +37,6 @@ export class ActualizarDespachoComponent implements OnInit {
       _a => {
         this.router.navigate(['/medicamento']),
         swal.fire('medicamento actualizado', `El despacho con identificador ${this.despacho.id} actualizado con exito`, 'success')
-        console.log(_a['valor'])
       }
       
     )

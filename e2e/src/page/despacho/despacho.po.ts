@@ -9,11 +9,13 @@ export class DespachoPage {
 
     //crear despacho
     private linkAceptarCrearDespacho = element(by.id('linkAceptarCrearDespacho'));
+    private linkAceptarActualizarDespacho = element(by.id('linkAceptarActualizarMedicamento'));
     private inputNombreCrearDespacho = element(by.id('nombreMedicamentoCrearDespacho'));
     private inputFechaCrearDespacho = element(by.id('fechaMedicamentoCrearDespacho'));
     private inputCostoCrearDespacho = element(by.id('costoMedicamentoCrearDespacho'));
     private inputCantidadCrearDespacho = element(by.id('cantidadCrearDespacho'));
     private inputDireccionDespacho = element(by.id('direccionCrearDespacho'));
+    private inputDireccionActualizarDespacho = element(by.id('direccionActualizarDespacho'));
 
     //funciones para crear un despacho
     //Medicamento
@@ -51,5 +53,13 @@ export class DespachoPage {
 
     async ingresarDireccionCrearDespacho(direccion){
         await this.inputDireccionDespacho.sendKeys(direccion);
+    }
+
+    async clickLinkActualizarDespacho(){
+        await this.linkAceptarActualizarDespacho.click();  
+    }
+
+    async ingresarDireccionActualizarDespacho(direccion){
+        await this.inputDireccionActualizarDespacho.sendKeys(direccion);
     }
 }
