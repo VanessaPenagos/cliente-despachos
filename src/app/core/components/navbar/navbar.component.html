@@ -17,9 +17,9 @@
         </div>
       </ul>
     </div>
-    <form class="form-inline my-4 my-lg-3">
-      <input type="text"  class="form-control" id="id" placeholder="Ingrese Id Despacho" [(ngModel)]="id" name="id">
-      <button class="btn btn-primary" type="button" name="button" id="linkBuscarDespacho" [routerLink] = "['/despacho/actualizar' , id]">Buscar</button>
+    <form class="d-flex">
+      <input class="form-control me-2" type="text" id="inputIdBuscarDespacho" placeholder="Ingrese Id Despacho" [(ngModel)]="id" name="id" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit" id="linkBuscarDespacho" [routerLink] = "['/despacho/actualizar' , id]">Search</button>
     </form>
   </div>
 </nav>

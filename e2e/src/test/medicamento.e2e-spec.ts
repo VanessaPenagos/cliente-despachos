@@ -17,13 +17,13 @@ describe('workspace-project Medicamento', () => {
         page.navigateTo();
         navBar.clickBotonMedicamentos();
     
-        expect(4).toBe(medicamento.contarMedicamento());
+        expect(1).toBe(medicamento.contarMedicamento());
       });
 
       it('E Crear Medicamento', () => {
         const nombre = "Ibuprofeno";
         const costo = "300";
-        const fechaVencimiento = "2021-05-19 00:00:00";
+        const fechaVencimiento = "2021-12-19 00:00:00";
     
         page.navigateTo();
         navBar.clickBotonMedicamentos();
@@ -35,7 +35,7 @@ describe('workspace-project Medicamento', () => {
         page.navigateTo();
         navBar.clickBotonMedicamentos();
     
-        expect(5).toBe(medicamento.contarMedicamento());
+        expect(2).toBe(medicamento.contarMedicamento());
       });
 
 });    

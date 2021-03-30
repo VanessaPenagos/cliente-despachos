@@ -36,4 +36,15 @@ describe('workspace-project Despacho', () => {
         page.navigateTo();
         navBar.clickBotonMedicamentos();
       });
+
+      
+      
+    it('A Buscar Despacho', () => {
+
+        const id = "2";
+        
+        page.navigateTo();
+        navBar.ingresarIdBuscarDespacho(id);
+        navBar.clickBotonDespacho();
+      });
 });
