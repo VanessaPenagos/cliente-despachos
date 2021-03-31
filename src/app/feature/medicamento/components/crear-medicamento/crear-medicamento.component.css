@@ -11,3 +11,15 @@ button {
     background-color: rgb(186, 231, 216);
     color: black;
   }
+
+  input:invalid {
+    border: 2px dashed red;
+  }
+  
+  input:invalid:required {
+    background-image: linear-gradient(to right, pink, rgb(179, 255, 236));
+  }
+  
+  input:valid {
+    border: 2px solid black;
+  }

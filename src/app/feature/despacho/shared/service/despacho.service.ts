@@ -18,7 +18,8 @@ export class DespachoService {
     return this.http.doGet<Despacho>(`${environment.endpoint}/despachos/${id}`, this.http.optsName('consultar despacho')).pipe(
       catchError(e => {
         console.error(e.error.mensaje);
-        swal.fire('Error al cargar el desacho ', 'Despacho no encontrado', 'error');
+        this.router.navigate(['/medicamento/listar'])
+        swal.fire('Error al buscar el despacho', "Despacho no encontrado", 'error');        
         return throwError(e);
       })
     );

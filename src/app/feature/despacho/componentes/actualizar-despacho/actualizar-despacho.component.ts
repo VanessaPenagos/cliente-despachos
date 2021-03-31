@@ -12,12 +12,15 @@ import swal from 'sweetalert2';
 export class ActualizarDespachoComponent implements OnInit {
 
   public despacho: Despacho = new Despacho();
+ // private cargarFormulario:boolean = false;
+
 
   constructor(protected despachoService:  DespachoService, protected router: Router, private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.cargarDespacho();
+    this.cargarDespacho();    
   }
+
 
   cargarDespacho() {
     this.activatedRoute.params.subscribe(
@@ -25,8 +28,9 @@ export class ActualizarDespachoComponent implements OnInit {
         let id = params['id']
         if(id){
           this.despachoService.buscar(id).subscribe(
-            despachoResponse => this.despacho = despachoResponse
-          )
+            despachoResponse => {           
+              this.despacho = despachoResponse
+            })
         }
       }
     )
@@ -36,10 +40,8 @@ export class ActualizarDespachoComponent implements OnInit {
     this.despachoService.actualizar(this.despacho).subscribe(
       _a => {
         this.router.navigate(['/medicamento']),
-        swal.fire('medicamento actualizado', `El despacho con identificador ${this.despacho.id} actualizado con exito`, 'success')
+        swal.fire('Despacho actualizado', `El despacho con identificador ${this.despacho.id} actualizado con exito`, 'success')
       }
-      
     )
   }
-
 }

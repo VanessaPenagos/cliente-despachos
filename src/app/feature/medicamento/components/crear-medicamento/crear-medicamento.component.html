@@ -6,15 +6,15 @@
     <form>
       <div class="mb-3">
         <label for="nombre" class="form-label">Nombre</label>
-        <input type="text" class="form-control" id="nombreCrearMedicamento" [(ngModel)]="medicamento.nombre" name="nombre">
+        <input type="text" class="form-control" id="nombreCrearMedicamento" [(ngModel)]="medicamento.nombre" name="nombre" required>
       </div>
       <div class="mb-3">
         <label for="fechaVencimeinto" class="form-label">Fecha vencimiento</label>
-        <input type="text" placeholder="yyyy-mm-dd hh:mm:ss"  class="form-control" id="fechaCrearMedicamento" [(ngModel)]="medicamento.fechaVencimiento" name="fechaVencimiento">
+        <input type="text" placeholder="yyyy-mm-dd hh:mm:ss"  class="form-control" id="fechaCrearMedicamento" [(ngModel)]="medicamento.fechaVencimiento" name="fechaVencimiento" required>
       </div>
       <div class="mb-3">
         <label for="costo" class="form-label">Costo</label>
-        <input type="text"  class="form-control" id="CostoCrearMedicamento" [(ngModel)]="medicamento.costo" name="costo">
+        <input type="text"  class="form-control" id="CostoCrearMedicamento" [(ngModel)]="medicamento.costo" name="costo" required>
       </div>
     </form>
   </div>

@@ -30,7 +30,7 @@ export class CrearDespachoComponent implements OnInit {
     this.despachoService.crear(this.despacho).subscribe(
       _a => {
         this.router.navigate(['/medicamento']),
-        swal.fire('medicamento creada', `El despacho con identificador ${_a['valor']} generado con éxito`, 'success')
+        swal.fire('Despacho creado', `El despacho con identificador ${_a['valor']} generado con éxito`, 'success')
         console.log(_a['valor'])
       }
       

@@ -17,7 +17,7 @@ describe('workspace-project Medicamento', () => {
         page.navigateTo();
         navBar.clickBotonMedicamentos();
     
-        expect(1).toBe(medicamento.contarMedicamento());
+        expect(2).toBe(medicamento.contarMedicamento());
       });
 
       it('E Crear Medicamento', () => {
@@ -35,7 +35,7 @@ describe('workspace-project Medicamento', () => {
         page.navigateTo();
         navBar.clickBotonMedicamentos();
     
-        expect(2).toBe(medicamento.contarMedicamento());
+        expect(3).toBe(medicamento.contarMedicamento());
       });
 
 });    

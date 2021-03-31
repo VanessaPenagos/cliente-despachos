@@ -6,8 +6,8 @@
     border-collapse: collapse;
     border: 3px solid rgb(186, 231, 216);
     margin: 0 auto;
-    margin-top: 2%;
-    height: 670px;
+    margin-top: 3%;
+    height: 660px;
 }
 
 button {
@@ -16,3 +16,14 @@ button {
 
   }
 
+  input:invalid {
+    border: 2px dashed red;
+  }
+  
+  input:invalid:required {
+    background-image: linear-gradient(to right, pink, rgb(179, 255, 236));
+  }
+  
+  input:valid {
+    border: 2px solid black;
+  }
