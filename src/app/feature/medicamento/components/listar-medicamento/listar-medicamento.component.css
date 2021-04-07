@@ -1,3 +1,6 @@
+.hijo {
+  width: 50%;
+}
 table {
     table-layout: fixed;
     justify-content: center;
@@ -6,7 +9,16 @@ table {
     border-collapse: collapse;
     border: 3px solid rgb(186, 231, 216);
 }
-
+h5 {
+  text-align: center; 
+  width: 50%;
+}
+.my-4 {
+  padding-left: 85%;
+}
+.boton {
+  align-self: flex-end;
+}
 thead th:nth-child(1) {
     width: 10%;
   }
