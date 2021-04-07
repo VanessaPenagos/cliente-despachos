@@ -12,7 +12,6 @@ import swal from 'sweetalert2';
 export class ActualizarDespachoComponent implements OnInit {
 
   public despacho: Despacho = new Despacho();
- // private cargarFormulario:boolean = false;
 
 
   constructor(protected despachoService:  DespachoService, protected router: Router, private activatedRoute:ActivatedRoute) { }
