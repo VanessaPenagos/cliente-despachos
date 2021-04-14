@@ -5,21 +5,27 @@ import { Despacho } from '../model/despacho';
 import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import {  Router } from '@angular/router';
-import swal from 'sweetalert2';
+import { Alerta } from '@shared/components/model/alerta';
+import { AlertaService } from '@shared/components/service/alerta.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DespachoService {
 
-  constructor(protected http: HttpService,  protected router: Router) { }
+  public ErrorTitulo = "Error al buscar el despacho";
+  public ErrorBuscar = "Despacho no encontrado";
+  public ErrorCrear = "Despacho no creado";
+  public alerta: Alerta;
+
+  constructor(protected http: HttpService, private alertaService:AlertaService, protected router: Router) { }
 
   public buscar(id:number) {
     return this.http.doGet<Despacho>(`${environment.endpoint}/despachos/${id}`, this.http.optsName('consultar despacho')).pipe(
       catchError(e => {
-        console.error(e.error.mensaje);
         this.router.navigate(['/medicamento/listar'])
-        swal.fire('Error al buscar el despacho', "Despacho no encontrado", 'error');        
+        this.alerta = new Alerta(this.ErrorTitulo,this.ErrorBuscar,true);
+        this.alertaService.emiteError(this.alerta);      
         return throwError(e);
       })
     );
@@ -29,8 +35,8 @@ export class DespachoService {
     console.log(despacho)
     return this.http.doPost<Despacho, boolean>(`${environment.endpoint}/despachos`, despacho, this.http.optsName('crear despacho')).pipe(
       catchError(e => {
-        console.error(e.error.mensaje);
-        swal.fire('Error al crear el despacho', e.error.mensaje, 'error');
+        this.alerta = new Alerta(this.ErrorCrear,e.error.mensaje,true);
+        this.alertaService.emiteError(this.alerta); 
         return throwError(e);
       })
     );
