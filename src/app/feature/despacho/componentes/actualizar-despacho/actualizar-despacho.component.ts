@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Despacho } from 'src/app/feature/despacho/shared/model/despacho';
 import { DespachoService } from 'src/app/feature/despacho/shared/service/despacho.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import swal from 'sweetalert2';
+import { Alerta } from '@shared/components/model/alerta';
+import { AlertaService } from '@shared/components/service/alerta.service';
 
 @Component({
   selector: 'app-actualizar-despacho',
@@ -11,10 +12,12 @@ import swal from 'sweetalert2';
 })
 export class ActualizarDespachoComponent implements OnInit {
 
+  public mensajeExito = "¡Despacho actualizado con éxito!";
+  public alerta: Alerta;
   public despacho: Despacho = new Despacho();
 
 
-  constructor(protected despachoService:  DespachoService, protected router: Router, private activatedRoute:ActivatedRoute) { }
+  constructor(protected despachoService:  DespachoService, protected router: Router, private activatedRoute:ActivatedRoute, private alertaService:AlertaService) { }
 
   ngOnInit(): void {
     this.cargarDespacho();    
@@ -37,9 +40,10 @@ export class ActualizarDespachoComponent implements OnInit {
 
   public actualizar(): void{
     this.despachoService.actualizar(this.despacho).subscribe(
-      _a => {
+      _despacho => {
         this.router.navigate(['/medicamento']),
-        swal.fire('Despacho actualizado', `El despacho con identificador ${this.despacho.id} actualizado con exito`, 'success')
+        this.alerta = new Alerta(this.mensajeExito,this.despacho.id,true);
+        this.alertaService.emiteinfo(this.alerta);
       }
     )
   }

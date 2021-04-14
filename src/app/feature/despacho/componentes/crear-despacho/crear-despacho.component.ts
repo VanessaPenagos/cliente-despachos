@@ -3,7 +3,8 @@ import { Medicamento } from 'src/app/feature/medicamento/shared/model/medicament
 import { Despacho } from '../../shared/model/despacho';
 import { DespachoService } from '../../shared/service/despacho.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import swal from 'sweetalert2';
+import { Alerta } from '@shared/components/model/alerta';
+import { AlertaService } from '@shared/components/service/alerta.service';
 
 @Component({
   selector: 'app-crear-despacho',
@@ -11,11 +12,12 @@ import swal from 'sweetalert2';
   styleUrls: ['./crear-despacho.component.css']
 })
 export class CrearDespachoComponent implements OnInit {
-
+  public mensajeExito = "¡Despacho generado con éxito!";
+  public alerta: Alerta;
   public medicamento: Medicamento = new Medicamento;
   public despacho: Despacho = new Despacho();
 
-  constructor(protected despachoService:  DespachoService, protected router: Router, private activatedRoute:ActivatedRoute) { }
+  constructor(protected despachoService:  DespachoService, protected router: Router, private activatedRoute:ActivatedRoute, private alertaService:AlertaService) { }
 
   ngOnInit(): void {
     this.medicamento.id = this.activatedRoute.snapshot.params.id;
@@ -28,13 +30,11 @@ export class CrearDespachoComponent implements OnInit {
 
   public crear(): void{
     this.despachoService.crear(this.despacho).subscribe(
-      _a => {
+      _despacho => {
         this.router.navigate(['/medicamento']),
-        swal.fire('Despacho creado', `El despacho con identificador ${_a['valor']} generado con éxito`, 'success')
-        console.log(_a['valor'])
-      }
-      
+        this.alerta = new Alerta(this.mensajeExito,_despacho['valor'],true);
+        this.alertaService.emiteinfo(this.alerta);
+      }      
     )
   }
-
 }

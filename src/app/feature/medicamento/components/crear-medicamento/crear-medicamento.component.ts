@@ -1,8 +1,9 @@
 import { Component,OnInit} from '@angular/core';
 import { MedicamentoService } from '../../shared/service/medicamento.service';
-import swal from 'sweetalert2';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Alerta } from '@shared/components/model/alerta';
+import { AlertaService } from '@shared/components/service/alerta.service';
 
 @Component({
   selector: 'app-crear-medicamento',
@@ -10,9 +11,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./crear-medicamento.component.css']
 })
 export class CrearMedicamentoComponent implements OnInit{
+  public mensajeExito = "medicamento creado";
+  public alerta: Alerta;
   
   medicamentoForm: FormGroup;
-  constructor(protected medicamentoServices: MedicamentoService, protected router: Router) { }
+  
+  constructor(protected medicamentoServices: MedicamentoService, protected router: Router, private alertaService:AlertaService) { }
 
   ngOnInit() {
     this.construirFormularioProducto();
@@ -30,7 +34,8 @@ export class CrearMedicamentoComponent implements OnInit{
     this.medicamentoServices.crear(this.medicamentoForm.value).subscribe(
       _crearMedicamento => {
         this.router.navigate(['/medicamento/listar']),
-        swal.fire('medicamento creado', `Medicamento ${this.medicamentoForm.value.nombre} creado con éxito`, 'success')
+        this.alerta = new Alerta(this.mensajeExito,this.medicamentoForm.value.nombre,true);
+        this.alertaService.emiteinfo(this.alerta);
       }
     )
   }
