@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component,OnInit} from '@angular/core';
 import { MedicamentoService } from '../../shared/service/medicamento.service';
-import { Medicamento } from '../../shared/model/medicamento';
 import swal from 'sweetalert2';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,18 +9,28 @@ import { Router } from '@angular/router';
   templateUrl: './crear-medicamento.component.html',
   styleUrls: ['./crear-medicamento.component.css']
 })
-export class CrearMedicamentoComponent{
+export class CrearMedicamentoComponent implements OnInit{
   
-
-  public medicamento: Medicamento = new Medicamento();
-
+  medicamentoForm: FormGroup;
   constructor(protected medicamentoServices: MedicamentoService, protected router: Router) { }
 
+  ngOnInit() {
+    this.construirFormularioProducto();
+  }
+
+  private construirFormularioProducto() {
+    this.medicamentoForm = new FormGroup({
+      nombre: new FormControl('', [Validators.required]),
+      fechaVencimiento: new FormControl('', [Validators.required]),
+      costo: new FormControl('', [Validators.required])
+    });
+  }
+
   public crear(): void{
-    this.medicamentoServices.crear(this.medicamento).subscribe(
-      _a => {
+    this.medicamentoServices.crear(this.medicamentoForm.value).subscribe(
+      _crearMedicamento => {
         this.router.navigate(['/medicamento/listar']),
-        swal.fire('medicamento creado', `Medicamento ${this.medicamento.nombre} creado con éxito`, 'success')
+        swal.fire('medicamento creado', `Medicamento ${this.medicamentoForm.value.nombre} creado con éxito`, 'success')
       }
     )
   }

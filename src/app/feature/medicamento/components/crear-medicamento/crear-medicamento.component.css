@@ -5,24 +5,19 @@
     width: 50%;
     border-collapse: collapse;
     border: 3px solid rgb(186, 231, 216);
-    margin: 0 auto;
+    margin: 100px auto;
+    padding: 20px;
 }
+.col-sm-4 {
+  width: 400px;
+}
+
 .my-4 {
   padding-left: 85%;
 }
 button {
     background-color: rgb(186, 231, 216);
+    border: blue;
+    border-radius: 5px;
     color: black;
-  }
-
-  input:invalid {
-    border: 2px dashed red;
-  }
-  
-  input:invalid:required {
-    background-image: linear-gradient(to right, pink, rgb(179, 255, 236));
-  }
-  
-  input:valid {
-    border: 2px solid black;
-  }
+}

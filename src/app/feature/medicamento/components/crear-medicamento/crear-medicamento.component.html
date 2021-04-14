@@ -1,25 +1,36 @@
-<div class="card espacio">
-  <div class="card-header text-left" >
-    Nuevo medicamento
-  </div>
-  <div class="card-body">
-    <form>
-      <div class="mb-3">
-        <label for="nombre" class="form-label">Nombre</label>
-        <input type="text" class="form-control" id="nombreCrearMedicamento" [(ngModel)]="medicamento.nombre" name="nombre" required>
-      </div>
-      <div class="mb-3">
-        <label for="fechaVencimeinto" class="form-label">Fecha vencimiento</label>
-        <input type="text" placeholder="yyyy-mm-dd hh:mm:ss"  class="form-control" id="fechaCrearMedicamento" [(ngModel)]="medicamento.fechaVencimiento" name="fechaVencimiento" required>
-      </div>
-      <div class="mb-3">
-        <label for="costo" class="form-label">Costo</label>
-        <input type="text"  class="form-control" id="CostoCrearMedicamento" [(ngModel)]="medicamento.costo" name="costo" required>
-      </div>
-    </form>
+<form class="espacio" [formGroup]="medicamentoForm" (ngSubmit)="crear()">
+
+  <div class="row">
+    <div class="col-sm-2">
+      <label>Nombre:</label>
+    </div>
+    <div class="col-sm-4">
+      <input validar type="text" id="nombreCrearMedicamento" name="nombreCrearMedicamento" placeholder="Nombre medicamento" class="form-control"
+        formControlName="nombre">
+    </div>
   </div>
 
-    <div  class="my-4">
-        <button class="btn btn-primary" role="button" (click) = 'crear()' id="linkAceptarCrearMedicamento"> Inscribir </button>
+  <div class="row">
+    <div class="col-sm-2">
+      <label>Fecha vencimiento:</label>
     </div>
-</div>
+    <div class="col-sm-4">
+      <input validar type="text" id="fechaCrearMedicamento" name="fechaVencimiento" placeholder="yyyy-mm-dd hh:mm:ss"
+        class="form-control" formControlName="fechaVencimiento">
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-sm-2">
+      <label>Costo:</label>
+    </div>
+    <div class="col-sm-4">
+      <input validar type="text" id="CostoCrearMedicamento" name="CostoCrearMedicamento" placeholder="Costo"
+        class="form-control" formControlName="costo">
+    </div>
+  </div>
+
+  <div>
+    <button class="btn btn-primary" type="submit" >crear</button>
+  </div>
+</form>
