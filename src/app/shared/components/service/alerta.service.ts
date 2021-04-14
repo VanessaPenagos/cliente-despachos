@@ -8,11 +8,6 @@ import swal from 'sweetalert2';
 export class AlertaService {
     constructor() { }
 
-    public emiteAdvertencia(msj: Alerta): void {
-
-        swal.fire(msj.title, msj.message, 'warning');
-    }
-
     public emiteError(msj: Alerta): void {
 
         swal.fire(msj.title, msj.message, 'error');
